@@ -1,0 +1,32 @@
+import matplotlib.pyplot as plt
+import math
+
+def log(a):
+    x = []
+    y = []
+    for i in range(1,10):
+        x.append(i)
+        y.append(math.log(i,a))
+    plt.plot(x,y)
+    plt.title(f"y = log_{a} x")
+    plt.grid()
+    plt.show()
+
+def exp(a):
+    x = []
+    y = []
+    for i in range(1,10):
+        x.append(i)
+        y.append(a**i)
+    plt.plot(x,y)
+    plt.title(f"y = {a}^x")
+    plt.grid()
+    plt.show()
+
+c = input("지수, 로그: ")
+if c == "지수":
+    a  = int(input("a^x 의 a값: "))
+    exp(a)
+elif c == "로그":
+    a = int(input("log_a x 의 a값: "))
+    log(a)
