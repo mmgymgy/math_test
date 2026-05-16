@@ -40,6 +40,10 @@ def tan(a,b,c,d,q1,q2):
    
     for i in range(-180 + (q1 * 180),181 + (q2 * 180)):
         rad = math.radians(i)
+        if i % 180 == 90:
+            x.append(None)
+            y.append(None)
+            continue
         x.append(rad/b-c)
         y.append((math.tan(rad))*a+d)
     plt.plot(x,y)
