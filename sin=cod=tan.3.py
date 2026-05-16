@@ -34,20 +34,20 @@ def cos(a,b,c,d,q1,q2):
     plt.show()
 
    
-"""def tan(a,b,c,d):
+def tan(a,b,c,d,q1,q2):
     x = []
     y = []
    
-    for i in range(0,361):
+    for i in range(-180 + (q1 * 180),181 + (q2 * 180)):
         rad = math.radians(i)
         x.append(rad/b-c)
         y.append((math.tan(rad))*a+d)
-   
     plt.plot(x,y)
     plt.axhline(0, color='red', linewidth=1)
     plt.axvline(0, color='red', linewidth=1)
     plt.grid()
-    plt.show()"""
+    plt.ylim(-30,30)
+    plt.show()
 
 
 
@@ -61,18 +61,15 @@ d = int(input(f"a{q}(bx + c) + d 의 d값: "))
 if c>0:
     q1 = 0
     q2 = c//4
-    print(f"1번{q2}")
 elif c<0:
     q1 = c//4
     q2 = 0
-    print(f"2번{q1}")
 else:
     q1 = q2 = 0
-    print("3번")
 
 if q == "sin":
     sin(a,b,c,d,q1,q2)
 elif q == "cos":
     cos(a,b,c,d,q1,q2)
 elif q == "tan":
-    tan(a,b,c,d)
+    tan(a,b,c,d,q1,q2)
