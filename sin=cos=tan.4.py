@@ -8,7 +8,7 @@ def sin(a,b,c,d,q1,q2):
    
     for i in range(-360 + (q1 * 360),361 + (q2 * 360)):
         rad = math.radians(i)
-        x.append(rad/b-c)
+        x.append((rad-c)/b)
         y.append((math.sin(rad))*a+d)
    
     plt.plot(x,y)
@@ -24,7 +24,7 @@ def cos(a,b,c,d,q1,q2):
    
     for i in range(-360 + (q1 * 360),361 + (q2 * 360)):
         rad = math.radians(i)
-        x.append(rad/b-c)
+        x.append((rad-c)/b)
         y.append((math.cos(rad))*a+d)
    
     plt.plot(x,y)
@@ -37,21 +37,22 @@ def cos(a,b,c,d,q1,q2):
 def tan(a,b,c,d,q1,q2):
     x = []
     y = []
-   
-    for i in range(-180 + (q1 * 180),181 + (q2 * 180)):
+    
+    for i in range(-360 + (q1 * 360),361 + (q2 * 360)):
         rad = math.radians(i)
         if i % 180 == 90:
             x.append(None)
             y.append(None)
             continue
-        x.append(rad/b-c)
-        y.append((math.tan(rad))*a+d)
+        y.append((math.sin(rad)/math.cos(rad))*a+d)
+        x.append((rad-c)/b)
+   
     plt.plot(x,y)
     plt.axhline(0, color='red', linewidth=1)
     plt.axvline(0, color='red', linewidth=1)
     plt.grid()
-    plt.ylim(-30,30)
     plt.show()
+   
 
 
 
